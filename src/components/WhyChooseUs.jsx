@@ -85,10 +85,34 @@ const WhyChooseUs = () => {
           <h2 className="text-3xl font-bold text-foreground mb-3 tracking-tight">
             Why Choose Us
           </h2>
-          <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto rounded-full mb-3"></div>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Your success is our priority. Here's what sets us apart from the competition.
-          </p>
+         
+      <div className="text-center">
+  <div className="w-32 h-1.5 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto rounded-full mb-4"></div>
+
+  <p
+    className="
+      text-xl
+      text-muted-foreground
+      max-w-3xl
+      mx-auto
+      leading-relaxed
+      text-justify
+
+      px-4
+      sm:px-6
+      md:px-0
+    "
+  >
+    Anand Imports & Exports is a diversified trading enterprise facilitating the movement of
+    high-quality products across national and international markets. With strong global
+    associations, disciplined processes, and a commitment to reliability, we enable seamless
+    trade between businesses, industries, and regions. Our operations are built on precision,
+    compliance, and long-term value creation, positioning us as a dependable partner in global
+    commerce.
+  </p>
+</div>
+
+       
         </div>
 
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">

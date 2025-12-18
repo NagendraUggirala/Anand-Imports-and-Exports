@@ -1,144 +1,90 @@
-import { Button } from "./ui/button";
-import { Ship, Truck, Package, ArrowRight } from "lucide-react";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
+import { Ship, Truck, Package } from "lucide-react";
 
-const ServicesPreview = () => {
-  const navigate = useNavigate();
-  const [visibleCards, setVisibleCards] = useState({});
-  const [isHeaderVisible, setIsHeaderVisible] = useState(false);
-  const headerRef = useRef(null);
-  const cardsRef = useRef([]);
-
+const Services = () => {
   const services = [
     {
       icon: Ship,
-      title: "Export Services",
-      description: "International export solutions to global markets",
-      color: "text-primary",
-      bgColor: "bg-gradient-to-br from-primary/20 to-primary/5",
-    },
-    {
-      icon: Package,
-      title: "Import Solutions",
-      description: "Hassle-free import services from trusted suppliers",
-      color: "text-brand-orange",
-      bgColor: "bg-gradient-to-br from-brand-orange/20 to-brand-orange/5",
+      title: "International Exports",
+      description: "We supply a broad range of products to overseas markets, adhering to global regulations, industry benchmarks, and customer-specific requirements. Our export operations are supported by stable supply chains, rigorous quality control, and timely execution.",
+      color: "text-green-600",
+      bgColor: "bg-gradient-to-br from-green-100 to-green-50",
+      borderColor: "border-green-200",
+      image: "./images/international.jpg",
     },
     {
       icon: Truck,
-      title: "Distribution",
-      description: "Domestic and national distribution networks",
-      color: "text-brand-gold",
-      bgColor: "bg-gradient-to-br from-brand-gold/20 to-brand-gold/5",
+      title: "National Distribution",
+      description: "Across India, we provide structured distribution solutions supported by an efficient logistics framework. Our domestic network ensures consistent supply, dependable service, and streamlined delivery throughout the country.",
+      color: "text-blue-600",
+      bgColor: "bg-gradient-to-br from-blue-100 to-blue-50",
+      borderColor: "border-blue-200",
+      image: "./images/national.png",
+    },
+    {
+      icon: Package,
+      title: "Global Imports",
+      description: "We procure goods from established international manufacturers, ensuring authenticity, operational efficiency, and full compliance with import standards. Our team handles procurement, documentation, and logistics, providing clients with a smooth and secure import experience.",
+      color: "text-orange-600",
+      bgColor: "bg-gradient-to-br from-orange-100 to-orange-50",
+      borderColor: "border-orange-200",
+      image: "./images/global.jpg",
     },
   ];
 
-  useEffect(() => {
-    // Header animation observer
-    const headerObserver = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsHeaderVisible(true);
-          headerObserver.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    // Cards animation observer
-    const cardsObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = entry.target.dataset.index;
-            setVisibleCards((prev) => ({ ...prev, [index]: true }));
-            cardsObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    if (headerRef.current) {
-      headerObserver.observe(headerRef.current);
-    }
-
-    cardsRef.current.forEach((card) => {
-      if (card) cardsObserver.observe(card);
-    });
-
-    return () => {
-      if (headerRef.current) {
-        headerObserver.unobserve(headerRef.current);
-      }
-      cardsRef.current.forEach((card) => {
-        if (card) cardsObserver.unobserve(card);
-      });
-    };
-  }, []);
-
   return (
-    <section className="bg-gradient-to-b from-background to-secondary/10 relative overflow-hidden pb-8 md:pb-5">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div 
-          ref={headerRef}
-          className={`text-center mb-5 scroll-animate ${isHeaderVisible ? "scroll-animate-visible" : ""}`}
-        >
-          <h2 className="text-3xl font-bold text-foreground mb-2 tracking-tight">
+    <section id="services" className="bg-gradient-to-b from-background via-secondary/20 to-background relative overflow-hidden py-12">
+      <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 -mt-4">
+        <div className="text-center mb-10 animate-fade-in">
+          <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-3 tracking-tight">
             Our Core Services
-          </h2>
-          <div className="w-24 h-1.5 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto rounded-full mb-3"></div>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          </h3>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto rounded-full mb-4"></div>
+          <p className="text-base sm:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Comprehensive trading solutions designed for your business success
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {services.map((service, index) => (
-            <div
+            <Card
               key={index}
-              ref={(el) => (cardsRef.current[index] = el)}
-              data-index={index}
-              className={`group bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-2 border-border/50 cursor-pointer scroll-animate-scale ${
-                visibleCards[index] ? "scroll-animate-scale-visible" : ""
-              }`}
-              style={{ transitionDelay: `${index * 0.1}s` }}
-              onClick={() => navigate("/services")}
+              className={`border-2 ${service.borderColor} shadow-xl hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 animate-slide-up bg-white/80 backdrop-blur-sm group overflow-hidden relative h-full flex flex-col`}
+              style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className={`w-16 h-16 ${service.bgColor} rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300`}>
-                <service.icon className={`h-8 w-8 ${service.color}`} />
-              </div>
-              <h3 className="text-xl font-bold text-foreground mb-2 transition-all duration-300">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed">
-                {service.description}
-              </p>
-            </div>
+              <CardHeader className="relative z-10 pb-0">
+                {service.image ? (
+                  <div className="h-48 overflow-hidden rounded-2xl mb-6 group-hover:scale-105 transition-transform duration-300">
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div className={`w-20 h-20 ${service.bgColor} rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-all duration-300 shadow-lg`}>
+                    <service.icon className={`h-10 w-10 ${service.color} group-hover:scale-110 transition-transform duration-300`} />
+                  </div>
+                )}
+                <CardTitle className="text-2xl font-bold text-foreground mb-3 transition-all duration-300">
+                  {service.title}
+                </CardTitle>
+              </CardHeader>
+              <CardContent className="relative z-10 flex-grow flex flex-col">
+                <p className="text-muted-foreground leading-relaxed mb-6 text-base flex-grow">
+                  {service.description}
+                </p>
+                {/* No interactive elements - just static cards */}
+              </CardContent>
+            </Card>
           ))}
-        </div>
-
-        <div className="text-center">
-          <Button
-            size="lg"
-            onClick={() => navigate("/services")}
-            className="relative bg-orange-500 hover:bg-orange-500 text-white shadow-lg font-semibold overflow-hidden group hover:scale-105 transition-transform duration-300 px-8 rounded-full"
-          >
-            <span className="relative z-10 flex items-center">
-              View All Services
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </span>
-            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
-          </Button>
         </div>
       </div>
     </section>
   );
 };
 
-export default ServicesPreview;
-
+export default Services;

@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import { Package, ChefHat, Monitor, Shirt, Factory, Hospital, Sofa, Globe, ArrowRight, Users } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Industries = () => {
   const industries = [
@@ -109,47 +110,84 @@ const Industries = () => {
             </div>
           ))}
         </div>
+<section className="pt-5 md:pt-12 pb-4 md:pb-6 bg-white">
+  <div className="container mx-auto px-4 sm:px-6">
+    <div className="max-w-4xl mx-auto text-center">
+      <h2 className="text-2xl md:text-4xl font-bold text-blue-800 mb-4 md:mb-6">
+        Industries Provides
+      </h2>
 
-        {/* Additional description section - REMOVED motion components */}
-        <section className="pt-5 md:pt-12 pb-4 md:pb-6 bg-white">
-          <div className="container mx-auto px-4 sm:px-6">
-            <div className="max-w-4xl mx-auto text-center">
-              <div>
-                <h2 className="text-2xl md:text-4xl font-bold text-blue-800 mb-4 md:mb-6">
-                  Industries Provides
-                </h2>
-                <div className="w-20 h-1 md:w-24 md:h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto mb-6 md:mb-8 rounded-full"></div>
-                <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed mb-6 md:mb-8 px-2 sm:px-4">
-                  With a diversified global trading portfolio, Anand Imports & Exports supports multiple industries through reliable sourcing, compliant trade practices, and efficient logistics solutions. Our industry-focused approach enables us to understand sector-specific requirements, maintain consistent quality standards, and deliver value-driven supply solutions across domestic and international markets. By combining strong partnerships, operational excellence, and market insight, we help businesses grow sustainably while meeting evolving global trade demands.
-                </p>
-                <div className="inline-block">
-                  {/* Add any content here if needed */}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+      <div className="w-20 h-1 md:w-24 md:h-1 bg-gradient-to-r from-blue-500 to-orange-500 mx-auto mb-6 md:mb-8 rounded-full"></div>
+
+      <p
+        className="
+          text-base sm:text-lg md:text-xl
+          text-gray-700
+          leading-relaxed
+          mb-6 md:mb-8
+          px-2 sm:px-4
+
+          /* Mobile only */
+          text-justify
+          break-words
+          hyphens-auto
+          max-w-md
+          mx-auto
+
+          /* Desktop */
+          md:text-center
+          md:max-w-4xl
+        "
+      >
+        With a diversified global trading portfolio, Anand Imports & Exports supports multiple industries through reliable sourcing, compliant trade practices, and efficient logistics solutions. Our industry-focused approach enables us to understand sector-specific requirements, maintain consistent quality standards, and deliver value-driven supply solutions across domestic and international markets. By combining strong partnerships, operational excellence, and market insight, we help businesses grow sustainably while meeting evolving global trade demands.
+      </p>
+    </div>
+  </div>
+</section>
+
         
-        {/* Compact CTA Section */}
-        <div className="mt-12 bg-gradient-to-r from-gray-900 to-gray-800 rounded-xl p-6 lg:p-8 text-center text-white">
-          <div className="max-w-3xl mx-auto">
-            <h3 className="text-xl lg:text-2xl font-bold mb-3">
-              Need Industry-Specific Solutions?
-            </h3>
-            <p className="text-gray-300 mb-6 text-base">
-              Our industry specialists provide customized trading strategies, market insights, and complete supply chain solutions.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button className="px-6 py-2.5 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300 flex items-center justify-center gap-2 text-sm">
-                <Users className="h-4 w-4" />
-                <span>Schedule Consultation</span>
-              </button>
-              <button className="px-6 py-2.5 bg-transparent border border-white text-white font-semibold rounded-lg hover:bg-white/10 transition-colors duration-300 text-sm">
-                Download Industry Reports
-              </button>
-            </div>
-          </div>
-        </div>
+   {/* Compact CTA Section */}
+<div className="mt-12 bg-gradient-to-r from-slate-800 to-slate-700 rounded-xl p-6 lg:p-8 text-center">
+  <div className="max-w-3xl mx-auto">
+    <h3 className="text-xl lg:text-2xl font-bold mb-3 text-white">
+      Need Industry-Specific Solutions?
+    </h3>
+
+    <p
+      className="
+        text-slate-300
+        mb-6
+        text-base
+        leading-relaxed
+
+        /* Mobile only */
+        text-justify
+        break-words
+        hyphens-auto
+        max-w-md
+        mx-auto
+
+        /* Desktop */
+        md:text-center
+        md:max-w-3xl
+      "
+    >
+      Our industry specialists provide customized trading strategies, market insights, and complete supply chain solutions.
+    </p>
+
+  <div className="flex justify-center">
+  <Link to="/contact">
+    <button className="px-6 py-2.5 bg-white text-slate-900 font-semibold rounded-lg hover:bg-slate-100 transition-colors duration-300 flex items-center justify-center gap-2 text-sm">
+      <Users className="h-4 w-4" />
+      <span>Schedule Consultation</span>
+    </button>
+  </Link>
+</div>
+
+  </div>
+</div>
+
+
       </div>
     </section>
   );
