@@ -67,16 +67,14 @@ const Industries = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Compact Header */}
         <div className="text-center mb-10 lg:mb-12">
-          <div className="inline-block px-3 py-1.5 rounded-full bg-primary/10 mb-3">
-            <span className="text-xs font-medium text-primary">INDUSTRIES</span>
-          </div>
+          
          
-          <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 tracking-tight">
+          <h3 className="text-3xl sm:text-3xl font-bold text-foreground mb-2 tracking-tight">
             Industries We Serve
           </h3>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-brand-gold to-transparent mx-auto rounded-full mb-4"></div>
           <p className="text-gray-600 max-w-2xl mx-auto">
-            We provide comprehensive trading solutions across multiple sectors, connecting quality with opportunity.
+            We provide comprehensive trading solutions across multiple sectors, connecting quality products with global and domestic opportunities. Our diverse industry experience allows us to understand specific market needs and deliver customized sourcing, import, export, and distribution services.
           </p>
         </div>
 
