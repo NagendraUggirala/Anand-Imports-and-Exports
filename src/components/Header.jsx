@@ -32,7 +32,7 @@ const Header = () => {
       ${isScrolled ? "shadow-md border-gray-200" : "border-gray-100"}`}>
       <div className="container mx-auto px-3">
         {/* Row */}
-        <div className="flex  items-center py-3 md:py-4">
+        <div className="flex   justify-between items-center py-3 md:py-4">
           {/* Logo - Left Side */}
           <Link to="/" className="flex items-center  md:space-x-2 group order-1">
             {/* Images First */}
