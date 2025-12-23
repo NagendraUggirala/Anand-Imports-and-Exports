@@ -30,33 +30,34 @@ const Header = () => {
       className={`sticky top-0 z-40 transition-all duration-300 
       bg-white border-b 
       ${isScrolled ? "shadow-md border-gray-200" : "border-gray-100"}`}>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-3">
         {/* Row */}
-        <div className="flex justify-between items-center py-3 md:py-4">
+        <div className="flex  items-center py-3 md:py-4">
           {/* Logo - Left Side */}
-          <Link to="/" className="flex items-center space-x-2 md:space-x-3 group order-1">
+          <Link to="/" className="flex items-center  md:space-x-2 group order-1">
             {/* Images First */}
-            <div className="flex items-center space-x-2">
-              <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-orange-200 overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-300">
-                <img
-                  src="./images/image.png"
-                  alt="Founder"
-                  className="w-full h-full object-cover object-top"
-                />
-              </div>
+            <div className="flex items-center space-x-1">
+               <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border-2 border-orange-200 overflow-hidden shadow-sm group-hover:shadow-md transition-all duration-300">
               <img
-                src="./images/Anandhlogo.png"
+                src="/images/image.png"
+                alt="Founder"
+                className="w-full h-full object-cover object-top"
+              />
+            </div>
+           
+              <img
+                src="/images/Anandhlogo.jpeg"
                 alt="Anand Logo"
-                className="w-8 h-10 md:w-10 md:h-12 object-contain"
+                 className="w-10 h-10 md:w-14 md:h-14 object-contain"
               />
             </div>
 
             {/* Text After Images */}
             <div className="flex flex-col items-start">
-              <h1 className="text-lg md:text-xl font-bold text-blue-800">
+              <h1 className="text-xs md:text-xl font-bold text-blue-800">
                 <span className="text-orange-500">ANAND </span>IMPORTS & EXPORTS
               </h1>
-              <p className="text-xs text-gray-600 italic mt-1">
+              <p className="text-xxs text-gray-600 italic mt-1">
                 Connecting Markets. Delivering Excellence.
               </p>
             </div>

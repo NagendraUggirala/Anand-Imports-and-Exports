@@ -160,20 +160,24 @@ const Footer = () => {
                 <div className="flex items-center space-x-3 mb-4">
                   {/* Founder Image and Logo */}
                   <div className="flex items-center space-x-2 flex-shrink-0">
-                    <div className="w-16 h-16 rounded-full border-2 border-orange-200 overflow-hidden shadow-lg">
-                      <img
+                    {/* <div className="w-16 h-16 rounded-full border-2 border-orange-200 overflow-hidden shadow-lg"> */}
+                      {/* <img
                         src="/images/image.png"
                         alt="Founder"
                         className="w-full h-full object-cover object-top"
-                      />
-                    </div>
-                    <div className="w-14 h-14">
+                      /> */}
+                    {/* </div> */}
+                    <div className="relative">
+                       <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white shadow-lg flex items-center justify-center">
                       <img
-                        src="/images/Anandhlogo.png"
+                        src="/images/Anandhlogo.jpeg"
                         alt="Anand Imports & Exports"
-                        className="w-full h-full object-contain"
+                        className="w-full  p-2 object-contain"
                       />
                     </div>
+
+                    </div>
+                   
                   </div>
                   {/* Text immediately to the side */}
                   <div className="flex flex-col">
